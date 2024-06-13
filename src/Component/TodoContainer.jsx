@@ -19,11 +19,30 @@ const TodoContainer = () => {
     
   }, []) 
 
+  // 체크 박스 토글
+  const onToggle = (todo) => {
+    console.log("체크박스 toggle!");
+    console.log(`체크박스 여부 : ${todo.status}`);
+    // todo.status
+
+    const data = {
+      no      : todo.no,
+      name    : todo.name,
+      status  : todo.status ? 0 : 1
+    }
+
+    const updatedTodoList = todoList.map((item) => {
+      return item.no == todo.no ? {...item, status: !item.status} : item
+    })
+
+    setTodoList(updatedTodoList)
+  }
+
   return (
     <div className='container'>
       <TodoHeader />
       <TodoInput />
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} onToggle={onToggle} />
       <TodoFooter />
     </div>
   )
