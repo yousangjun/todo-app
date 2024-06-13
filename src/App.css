@@ -1,38 +1,147 @@
-.App {
+.container {
+  margin: 100px auto;
+  width: 500px;
+  min-height: 600px;
+  /* border: 2px solid gray; */
+  border-radius: 35px;
+  padding: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: #FEEFD8;
+}
+
+.header {
   text-align: center;
+  font-size: 20px;
+  color: #FFC065;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  margin: 10px 10px 10px 0;
+}
+
+.input {
+  width: 80%;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.input::placeholder {
+  /* color: red; */
+}
+
+.form .input {
+  border: none;
+  border-bottom: 1px solid coral;
+  padding-left: 12px;
+  font-size: 18px;
+  outline: none;
+  color: coral;
+}
+
+.form .btn {
+  width: 15%;
+}
+
+.btn {
+  width: 80px;
+  height: 40px;
+  padding: 0 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background-color: coral;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background-color: orange;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:active {
+  box-shadow: none;
+}
+
+.todoList {
+  height: 500px;
+  overflow-y: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.todoItem {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 10px 10px 10px 0;
+  border: 2px solid wheat;
+  border-radius: 20px;
+  color: coral;
+  font-size: 18px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear,
+                     left bottom,
+                     left top,
+                     color-stop(0.86, rgb(255, 115, 0)));
+}
+
+/* 체크박스 */
+
+.todoItem input {
+  display: none;
+}
+.todoItem label {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border: 3px dashed coral;
+  border-radius: 50%;
+}
+
+.todoItem input:checked ~ label {
+  background-color: orange;
+  border: 3px solid brown;
+}
+
+.todoItem input:checked ~ span {
+  text-decoration: line-through;
+}
+
+.todoItem .item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
